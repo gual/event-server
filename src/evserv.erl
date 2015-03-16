@@ -109,7 +109,7 @@ subscribe(Pid) ->
 
 add_event(Name, Description, TimeOut) ->
 	Ref = make_ref(),
-	?MODULE ! {self(), Ref, {add, Name, Description, TimeOut}}
+	?MODULE ! {self(), Ref, {add, Name, Description, TimeOut}},
 	receive
 		{Ref, Msg} -> Msg
 	after 5000 ->
